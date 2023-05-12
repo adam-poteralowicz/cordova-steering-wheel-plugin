@@ -24,7 +24,7 @@ This project uses code released under the following MIT projects:
 - https://github.com/Initsogar/cordova-webintent.git (no longer available on github but the project is forked here: https://github.com/darryncampbell/cordova-webintent)
 This project is also released under MIT.  Credit is given in the code where appropriate
 
-## IntentShim
+## SteeringWheelListener
 This plugin defines a `window.plugins.intentShim` object which provides an API for interacting with the Android intent mechanism on any Android device.
 
 ## Testing / Example

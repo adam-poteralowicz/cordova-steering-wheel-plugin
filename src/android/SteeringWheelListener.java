@@ -1,4 +1,4 @@
-package com.darryncampbell.cordova.plugin.intent;
+package com.apap.cordova.steeringwheelplugin;
 
 import android.Manifest;
 import android.app.Activity;
@@ -49,17 +49,17 @@ import java.util.Map;
 import static android.os.Environment.getExternalStorageDirectory;
 import static android.os.Environment.getExternalStorageState;
 
-public class IntentShim extends CordovaPlugin {
+public class SteeringWheelListener extends CordovaPlugin {
 
     private final Map<BroadcastReceiver, CallbackContext> receiverCallbacks = new HashMap<>();
 
-    private static final String LOG_TAG = "Cordova Intents Shim";
+    private static final String LOG_TAG = "Cordova Steering Wheel Listener Plugin";
     private CallbackContext onNewIntentCallbackContext = null;
     private CallbackContext onActivityResultCallbackContext = null;
 
     private Intent deferredIntent = null;
 
-    public IntentShim() {
+    public SteeringWheelListener() {
 
     }
 

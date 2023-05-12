@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="com-darryncampbell-cordova-plugin-intent" version="2.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="steering-wheel-listener" version="2.2.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Intent Shim</name>
-    <js-module name="IntentShim" src="www/IntentShim.js">
-        <clobbers target="intentShim" />
+    <js-module name="SteeringWheelListener" src="www/SteeringWheelListener.js">
+        <clobbers target="steeringWheelListener" />
     </js-module>
     
     <hook type="after_prepare" src="hooks/after_prepare.js" />
@@ -10,14 +10,14 @@
 	<!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="IntentShim" >
-                <param name="android-package" value="com.darryncampbell.cordova.plugin.intent.IntentShim"/>
+            <feature name="SteeringWheelListener" >
+                <param name="android-package" value="com.apap.cordova.steeringwheelplugin.SteeringWheelListener"/>
                 <param name="onload" value="true"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" platform="android" parent="/manifest/application/activity" mode="merge">
             <intent-filter>
-                <action android:name="com.darryncampbell.cordova.plugin.intent.ACTION" />
+                <action android:name="com.apap.cordova.steeringwheelplugin.ACTION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </config-file>
@@ -29,8 +29,8 @@
         </config-file>
         <config-file target="AndroidManifest.xml" platform="android" parent="/manifest/application" mode="merge">
             <provider
-                android:name="com.darryncampbell.cordova.plugin.intent.CordovaPluginIntentFileProvider"
-                android:authorities="${applicationId}.darryncampbell.cordova.plugin.intent.fileprovider"
+                android:name="com.apap.cordova.steeringwheelplugin.CordovaSteeringWheelPluginFileProvider"
+                android:authorities="${applicationId}.apap.cordova.steeringwheelplugin.fileprovider"
                 android:exported="false"
                 android:grantUriPermissions="true">
                 <meta-data
@@ -38,8 +38,8 @@
                     android:resource="@xml/provider_paths"/>
             </provider>
         </config-file>
-        <source-file src="src/android/IntentShim.java" target-dir="src/com/darryncampbell/plugin/intent" />
-        <source-file src="src/android/CordovaPluginIntentFileProvider.java" target-dir="src/com/darryncampbell/plugin/intent" />
+        <source-file src="src/android/SteeringWheelListener.java" target-dir="src/com/apap/steeringwheelplugin" />
+        <source-file src="src/android/CordovaSteeringWheelPluginFileProvider.java" target-dir="src/com/apap/steeringwheelplugin" />
 		<resource-file src="src/android/res/xml/provider_paths.xml" target="res/xml/provider_paths.xml"/>
 		<framework src="androidx.core:core:1.1.0" />
     </platform>

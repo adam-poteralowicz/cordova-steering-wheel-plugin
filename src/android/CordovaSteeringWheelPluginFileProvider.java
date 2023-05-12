@@ -1,4 +1,4 @@
-package com.darryncampbell.cordova.plugin.intent;
+package com.apap.cordova.steeringwheelplugin;
 
 public class CordovaPluginIntentFileProvider extends androidx.core.content.FileProvider {
 }
