@@ -1,28 +1,14 @@
 var argscheck = require('cordova/argscheck'),
-    channel = require('cordova/channel'),
-    utils = require('cordova/utils'),
     exec = require('cordova/exec'),
-    cordova = require('cordova');
 
 function SteeringWheelListener() {
     const me = this;
 }
 
-SteeringWheelListener.prototype.ACTION_SEND = "android.intent.action.SEND";
-SteeringWheelListener.prototype.ACTION_VIEW = "android.intent.action.VIEW";
-SteeringWheelListener.prototype.ACTION_INSTALL_PACKAGE = "android.intent.action.INSTALL_PACKAGE";
-SteeringWheelListener.prototype.ACTION_UNINSTALL_PACKAGE = "android.intent.action.UNINSTALL_PACKAGE";
-SteeringWheelListener.prototype.EXTRA_TEXT = "android.intent.extra.TEXT";
-SteeringWheelListener.prototype.EXTRA_SUBJECT = "android.intent.extra.SUBJECT";
-SteeringWheelListener.prototype.EXTRA_STREAM = "android.intent.extra.STREAM";
-SteeringWheelListener.prototype.EXTRA_EMAIL = "android.intent.extra.EMAIL";
-SteeringWheelListener.prototype.ACTION_CALL = "android.intent.action.CALL";
-SteeringWheelListener.prototype.ACTION_SENDTO = "android.intent.action.SENDTO";
-//  StartActivityForResult
-SteeringWheelListener.prototype.ACTION_GET_CONTENT = "android.intent.action.GET_CONTENT";
-SteeringWheelListener.prototype.ACTION_PICK = "android.intent.action.PICK";
-SteeringWheelListener.prototype.RESULT_CANCELED = 0; //  Activity.RESULT_CANCELED
-SteeringWheelListener.prototype.RESULT_OK = -1; //  Activity.RESULT_OK
+SteeringWheelListener.prototype.onButtonInput = function(params) {
+    argscheck.checkArgs('off', 'SteeringWheelListener.onButtonInput', arguments);
+    exec(null, null, "SteeringWheelListener", "onButtonInput", [params])
+}
 
 SteeringWheelListener.prototype.startActivity = function (params, successCallback, errorCallback) {
     argscheck.checkArgs('off', 'SteeringWheelListener.startActivity', arguments);

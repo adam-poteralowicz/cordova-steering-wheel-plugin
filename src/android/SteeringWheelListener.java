@@ -43,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Log;
 import java.util.List;
 import java.util.Map;
 
@@ -53,9 +54,10 @@ public class SteeringWheelListener extends CordovaPlugin {
 
     private final Map<BroadcastReceiver, CallbackContext> receiverCallbacks = new HashMap<>();
 
-    private static final String LOG_TAG = "Cordova Steering Wheel Listener Plugin";
+    private static final String LOG_TAG = "SteeringWheelListener";
     private CallbackContext onNewIntentCallbackContext = null;
     private CallbackContext onActivityResultCallbackContext = null;
+    private Activity activity;
 
     private Intent deferredIntent = null;
 
@@ -63,6 +65,25 @@ public class SteeringWheelListener extends CordovaPlugin {
 
     }
 
+    public LogitechKey onButtonInput(LogitechKey key) {
+        Log.d(LOG_TAG, key + " button push registered");
+        return key;
+    }
+
+    @Override
+        public void initialize(final CordovaInterface cordova, final CordovaWebView webView) {
+            super.initialize(cordova, webView);
+
+            activity = this.cordova.getActivity();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Window window = activity.getWindow();
+                }
+            });
+        }
+
+    @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException
     {
         Log.d(LOG_TAG, "Action: " + action);
