@@ -1,7 +1,7 @@
 {
   "name": "steering-wheel-plugin",
   "version": "1.0.0",
-  "description": "General purpose intent shim layer for cordova applications on Android.  Handles various techniques for sending and receiving intents.",
+  "description": "Steering wheel physical buttons on click listener",
   "main": "steeringWheelListener.js",
   "cordova": {
     "id": "steering-wheel-plugin",

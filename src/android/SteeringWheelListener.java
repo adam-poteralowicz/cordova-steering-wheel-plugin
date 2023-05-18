@@ -48,7 +48,7 @@ public class SteeringWheelListener extends CordovaPlugin {
             Integer keyCode;
             try {
                 JSONObject options = args.getJSONObject(0);
-                event = options.getInteger("keyCode");
+                keyCode = options.getInteger("keyCode");
             } catch (JSONException e) {
                 callbackContext.error("Error encountered: " + e.getMessage());
                 return false;
@@ -58,6 +58,26 @@ public class SteeringWheelListener extends CordovaPlugin {
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
             callbackContext.sendPluginResult(pluginResult);
             return true;
+        } else if (action.equals("onDirectionalPadClicked")) {
+            String direction;
+            MotionEvent event;
+            try {
+                JSONObject options = args.getJSONObject(0);
+                event = options.getJSONObject(0);
+                direction = DirectionalPad.getDirectionPressed(event);
+            } catch (JSONException e) {
+                callbackContext.error("Error encountered: " + e.getMessage());
+                return false;
+            }
+
+            switch (direction) {
+                case LEFT, RIGHT, UP, DOWN -> {
+                    onDirectionalPadClicked(direction.name());
+                    PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+                    callbackContext.sendPluginResult(pluginResult);
+                    return true;
+                }
+            }
         }
     }
 
@@ -68,7 +88,11 @@ public class SteeringWheelListener extends CordovaPlugin {
         return key;
     }
 
-    private Optional<LogitechKey> getLogitechKeyFor(int keyCode) {
+    private Optional<LogitechKey> getLogitechKeyFor(Integer keyCode) {
         return Arrays.stream(LogitechKey.values()).filter(key -> key.keyCode == keyCode).findFirst();
+    }
+
+    public String onDirectionalPadClicked(String direction) {
+        return direction;
     }
 }

@@ -6,8 +6,13 @@ function SteeringWheelListener() {
 }
 
 SteeringWheelListener.prototype.onKeyDispatched = function(keyCode) {
-    argscheck.checkArgs('off', 'SteeringWheelListener.onKeyDispatched', arguments);
-    exec(null, null, "SteeringWheelListener", "onKeyDispatched", [keyCode])
+    argscheck.checkArgs('n', 'SteeringWheelListener.onKeyDispatched', arguments);
+    exec(null, null, "SteeringWheelListener", "onKeyDispatched", [keyCode]);
+};
+
+SteeringWheelListener.prototype.onDirectionalPadClicked = function(event) {
+    argscheck.checkArgs('o', 'SteeringWheelListener.onDirectionalPadClicked', arguments);
+    exec(null, null, "SteeringWheelListener", "onDirectionalPadClicked", [event]);
 };
 
 window.steeringWheelListener = new SteeringWheelListener();

@@ -3,7 +3,7 @@
 - For Android Support Library please use version [1.3.x](https://www.npmjs.com/package/com-darryncampbell-cordova-plugin-intent/v/1.3.0)
 
 ## SteeringWheelListener
-This plugin defines a `window.plugins.steeringWheelListener` object which provides an API for interacting with the Android intent mechanism on any Android device.
+This plugin defines a `window.plugins.steeringWheelListener` object which provides an observer for steering wheel physical buttons' click events.
 
 ## Installation
 
@@ -12,9 +12,6 @@ This plugin defines a `window.plugins.steeringWheelListener` object which provid
 
 ### Cordova Version >= 7
     cordova plugin add steering-wheel-plugin
-
-## Use with PhoneGap
-Please use the latest PhoneGap cli when including this plugin, please refer to [Issue 63](https://github.com/darryncampbell/darryncampbell-cordova-plugin-intent/issues/63) for context. 
 
 ## Supported Platforms
 - Android
