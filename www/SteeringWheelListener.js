@@ -5,9 +5,9 @@ function SteeringWheelListener() {
     const me = this;
 }
 
-SteeringWheelListener.prototype.onButtonInput = function(keyCode) {
-    argscheck.checkArgs('off', 'SteeringWheelListener.onButtonInput', arguments);
-    exec(null, null, "SteeringWheelListener", "onButtonInput", [keyCode])
+SteeringWheelListener.prototype.onKeyDispatched = function(keyCode) {
+    argscheck.checkArgs('off', 'SteeringWheelListener.onKeyDispatched', arguments);
+    exec(null, null, "SteeringWheelListener", "onKeyDispatched", [keyCode])
 };
 
 window.steeringWheelListener = new SteeringWheelListener();

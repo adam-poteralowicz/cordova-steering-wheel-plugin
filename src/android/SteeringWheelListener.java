@@ -44,8 +44,7 @@ public class SteeringWheelListener extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException
     {
-        Log.d(LOG_TAG, "Action: " + action);
-        if (action.equals("onButtonInput")) {
+        if (action.equals("onKeyDispatched")) {
             Integer keyCode;
             try {
                 JSONObject options = args.getJSONObject(0);
@@ -55,14 +54,14 @@ public class SteeringWheelListener extends CordovaPlugin {
                 return false;
             }
 
-            onButtonInput(keyCode);
+            onKeyDispatched(keyCode);
             PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
             callbackContext.sendPluginResult(pluginResult);
             return true;
         }
     }
 
-    public LogitechKey onButtonInput(Integer keyCode) {
+    public LogitechKey onKeyDispatched(Integer keyCode) {
         Optional<LogitechKey> optionalKey = getLogitechKeyFor(keyCode);
         optionalKey.ifPresent(logitechKey -> Log.d(LOG_TAG, "KeyEvent.ACTION_DOWN: " + logitechKey));
         Log.d(LOG_TAG, key + " button push registered");
