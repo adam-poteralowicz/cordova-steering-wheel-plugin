@@ -1,7 +1,7 @@
 {
   "name": "steering-wheel-plugin",
   "version": "1.0.0",
-  "description": "Steering wheel physical buttons on click listener",
+  "description": "Steering wheel plugin for observing buttons input events and mapping physical buttons",
   "main": "steeringWheelListener.js",
   "cordova": {
     "id": "steering-wheel-plugin",
